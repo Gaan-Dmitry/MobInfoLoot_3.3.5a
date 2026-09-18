@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: MobInfoLoot
+## Notes: Кастомная база лута на основе UI AtlasLoot
+## Author: Dmitry
+## Version: 1.0
+
+MobInfoLoot.xml
+Database.lua
+MobInfoLoot.lua
