@@ -2,8 +2,10 @@
 ## Title: MobInfoLoot
 ## Notes: Кастомная база лута на основе UI AtlasLoot
 ## Author: Dmitry
-## Version: 1.0
+## Version: 2.0
+## SavedVariables: MobInfoLootDB
 
 MobInfoLoot.xml
 Database.lua
+DatabaseNames.lua
 MobInfoLoot.lua

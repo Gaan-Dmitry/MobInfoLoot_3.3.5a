@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
     <Frame name="MobInfoLootFrame" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true">
-        <Size x="400" y="500"/>
+        <Size x="440" y="540"/>
         <Anchors>
             <Anchor point="CENTER"/>
         </Anchors>
@@ -29,17 +29,51 @@
                     </OnClick>
                 </Scripts>
             </Button>
-            
+
+            <!-- Строка поиска -->
+            <EditBox name="$parentSearchBox" autoFocus="false" letters="50" historyLines="0">
+                <Size x="380" y="20"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="22" y="-38"/>
+                </Anchors>
+                <FontString inherits="ChatFontNormal"/>
+                <Scripts>
+                    <OnEscapePressed>self:ClearFocus();</OnEscapePressed>
+                </Scripts>
+            </EditBox>
+
+            <!-- Кнопки сортировки -->
+            <Button name="$parentSortChance" inherits="UIPanelButtonTemplate">
+                <Size x="90" y="20"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="22" y="-62"/>
+                </Anchors>
+                <TextString>Шанс ▼</TextString>
+            </Button>
+            <Button name="$parentSortName" inherits="UIPanelButtonTemplate">
+                <Size x="90" y="20"/>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentSortChance" relativePoint="RIGHT" x="5" y="0"/>
+                </Anchors>
+                <TextString>Имя</TextString>
+            </Button>
+            <Button name="$parentFilterLow" inherits="UIPanelButtonTemplate">
+                <Size x="120" y="20"/>
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentSortName" relativePoint="RIGHT" x="5" y="0"/>
+                </Anchors>
+                <TextString>Скрыть &lt;1%</TextString>
+            </Button>
+
             <!-- Окно прокрутки -->
             <ScrollFrame name="$parentScrollFrame" inherits="UIPanelScrollFrameTemplate">
                 <Anchors>
-                    <Anchor point="TOPLEFT" x="20" y="-40"/>
+                    <Anchor point="TOPLEFT" x="20" y="-90"/>
                     <Anchor point="BOTTOMRIGHT" x="-35" y="20"/>
                 </Anchors>
                 <ScrollChild>
-                    <!-- Внутренний контейнер, высота которого меняется скриптом -->
                     <Frame name="$parentScrollChild">
-                        <Size x="320" y="10"/> 
+                        <Size x="360" y="10"/>
                     </Frame>
                 </ScrollChild>
             </ScrollFrame>
